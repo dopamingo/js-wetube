@@ -9,6 +9,7 @@ import globalRouter from "./routers/globalRouter";
 import routes from "./routes";
 const app = express();
 
+app.set("view engine", "pug") // 기본 디렉토리는 /view
 app.use(cookieParser()); // 쿠키 미들웨어 use는 전역적용
 app.use(bodyParser.json()); // form데이터를 서버로 받아와서 활용
 app.use(bodyParser.urlencoded({extended: true}));
