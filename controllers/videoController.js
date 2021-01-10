@@ -1,6 +1,9 @@
-export const home = (req, res) =>
-    res.render("home", { pageTitle: "Home" }); //render의 첫번째 인자는 템플릿, 두번째 인자는 담을 객체
+import { videos } from "../db";
 
+export const home = (req, res) => {
+    res.render("home", { pageTitle: "Home", videos }); //render의 첫번째 인자는 템플릿, 두번째 인자는 담을 객체
+};
+    
 export const search = (req, res) => {
     const {
         query: { term: searchingBy }
