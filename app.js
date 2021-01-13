@@ -17,6 +17,7 @@ app.use(function(req, res, next) {
     return next();
     }); // 비디오 안 나온느 현상 임시 해결
 app.set("view engine", "pug") // 기본 디렉토리는 /view
+app.use("/uploads", express.static("uploads"));
 app.use(cookieParser()); // 쿠키 미들웨어 use는 전역적용
 app.use(bodyParser.json()); // form데이터를 서버로 받아와서 활용
 app.use(bodyParser.urlencoded({extended: true}));
