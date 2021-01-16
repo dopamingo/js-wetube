@@ -15,7 +15,7 @@ export const search = (req, res) => {
     const {
         query: { term: searchingBy }
     } = req;
-    res.render("search", { pageTitle: "Search", searchingBy, videos });
+    res.render("search", { pageTitle: "Search", searchingBy, videos }); //videㅐs 가 뭐였는지..
 };
 
 export const getUpload = (req, res) =>
@@ -71,5 +71,12 @@ export const getEditVideo = async (req, res) => {
     }
   };
 
-export const deleteVideo = (req, res) =>
-    res.render("deleteVideo", { pageTitle: "Delete Video" });
+  export const deleteVideo = async (req, res) => {
+    const {
+        params: { id }
+    } = req;
+    try {
+        await Video.findOneAndRemove({ _id: id });
+    } catch (error) {}
+    res.redirect(routes.home);
+  };
