@@ -3,7 +3,7 @@ import Video from "../models/Video";
 
 export const home = async (req, res) => {
     try {
-        const videos = await Video.find({}); //비디오 찾을때까지 랜더 안 하고 기다림...
+        const videos = await Video.find({}); // 데이타베이스의 모든 비디오 찾기
         res.render("home", { pageTitle: "Home", videos }); //render의 첫번째 인자는 템플릿, 두번째 인자는 담을 객체
     } catch (error) { // 예외처리
         console.log(error);
