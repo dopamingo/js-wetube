@@ -2,7 +2,6 @@ import passport from "passport";
 import GithubStrategy from "passport-github";
 import User from "./models/User";
 import { githubLoginCallback } from "./controllers/userController";
-import routes from "./routes";
 
 passport.use(User.createStrategy()); //유저 아이디, 비번 입력확인
 

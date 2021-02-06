@@ -69,6 +69,11 @@ export const logout = (req, res) => {
     req.logout(); // passport에서 그냥 해주는거..
     res.redirect(routes.home);
 };
+
+export const getMe = (req, res) => {
+    res.render("userDetail", { pageTitle: "User Detail", user: req.user });
+  };
+
 export const userDetail = (req, res) => res.render("userDetail");
 export const editProfile = (req, res) => res.render("editProfile");
 export const changePassword = (req, res) => res.render("changePassword");
