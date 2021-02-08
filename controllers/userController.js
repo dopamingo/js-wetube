@@ -63,7 +63,7 @@ export const githubLoginCallback = async(_, __, profile, cb) => {
 
 export const postGithubLogIn = (req, res) => {
     res.redirect(routes.home);
-  };
+};
 
 export const logout = (req, res) => {
     req.logout(); // passport에서 그냥 해주는거..
@@ -72,8 +72,18 @@ export const logout = (req, res) => {
 
 export const getMe = (req, res) => {
     res.render("userDetail", { pageTitle: "User Detail", user: req.user });
-  };
+};
 
-export const userDetail = (req, res) => res.render("userDetail");
+export const userDetail = async (req, res) => {
+    const {
+        params: { id }
+    } = req;
+    try {
+        const user = await User.findById(id);
+        res.render("userDetail", { pageTitle: "User Detail", user });
+    } catch (error) {
+        res.redirect(routes.home);
+    }
+};
 export const editProfile = (req, res) => res.render("editProfile");
 export const changePassword = (req, res) => res.render("changePassword");
