@@ -1,7 +1,10 @@
 import passport from "passport";
 import GithubStrategy from "passport-github";
+import KakaoStrategy from "passport-kakao";
 import User from "./models/User";
-import { githubLoginCallback } from "./controllers/userController";
+import { githubLoginCallback, kakaoLoginCallback
+} from "./controllers/userController";
+import routes from "./routes";
 
 passport.use(User.createStrategy()); //유저 아이디, 비번 입력확인
 
@@ -16,10 +19,20 @@ passport.use(
     )
   );
 
-  passport.serializeUser(function(user, done) {
-    done(null, user);
-  });
-  
-  passport.deserializeUser(function(user, done) {
-    done(null, user);
-  });
+passport.use(
+  new KakaoStrategy(
+    {
+      clientID: process.env.KK_ID,
+      callbackURL: "http://localhost:4000/oauth"
+    },
+    kakaoLoginCallback
+  )
+);
+
+passport.serializeUser(function(user, done) {
+  done(null, user);
+});
+
+passport.deserializeUser(function(user, done) {
+  done(null, user);
+});
