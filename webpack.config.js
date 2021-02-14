@@ -53,7 +53,8 @@ const config = {
       // both options are optional
       filename: '[name].css'
     }),
-  ]
+  ],
+  devtool: 'cheap-module-source-map' // videoPlayerjs 안 되는 부분 해결
 };
 
 module.exports = config;
