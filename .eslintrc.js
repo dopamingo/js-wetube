@@ -16,4 +16,7 @@ module.exports = {
   "no-else-return": "off"
   },
   parser : "babel-eslint",
+  env: {
+    "browser": true
+  }
 };
