@@ -98,6 +98,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _scss_styles_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../scss/styles.scss */ "./assets/scss/styles.scss");
 /* harmony import */ var _videoPlayer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./videoPlayer */ "./assets/js/videoPlayer.js");
 /* harmony import */ var _videoPlayer__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_videoPlayer__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _videoRecorder__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./videoRecorder */ "./assets/js/videoRecorder.js");
+/* harmony import */ var _videoRecorder__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_videoRecorder__WEBPACK_IMPORTED_MODULE_2__);
+
 
 
 
@@ -213,6 +216,42 @@ function init() {
 
 if (videoContainer) {
   init();
+}
+
+/***/ }),
+
+/***/ "./assets/js/videoRecorder.js":
+/*!************************************!*\
+  !*** ./assets/js/videoRecorder.js ***!
+  \************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+const recorderContainer = document.getElementById("jsRecordContainer");
+const recordBtn = document.getElementById("jsRecordBtn");
+const videoPreview = document.getElementById("jsVideoPreview");
+
+const startRecording = async () => {
+    try {
+        const stream = await navigator.mediaDevices.getUserMedia({
+            audio: true,
+            video: { width: 1280, height: 720 }
+        });
+        videoPreview.srcObject = stream;
+        videoPreview.muted = true;
+        videoPreview.play();
+    } catch (error) {
+        recordBtn.innerHTML = "☹️ Cant record";
+        recordBtn.removeEventListener("click", startRecording);
+        }
+    };
+
+function init() {
+    recordBtn.addEventListener("click", startRecording);
+}
+
+if (recorderContainer) {
+    init();
 }
 
 /***/ }),
