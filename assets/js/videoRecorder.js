@@ -54,3 +54,30 @@ function init() {
 if (recorderContainer) {
     init();
 }
+
+// async () => {
+//     try {
+//         const result1 = await firstAsynchronousFunction();
+//         const result2 = await secondAsynchronousFunction(result1);
+//         console.log(result2);
+//     } catch(err) {
+//         throw new Error(`Something failed`);
+//     } finally {
+//         console.log(`All Tasks is Done`);
+//     }
+// }
+
+// new Promise((resolve) => {
+//     console.log(`Initial`);
+//     resolve();
+//   })
+//   .then(() => {
+//     console.log(`Task Number One`);
+//   })
+//   .catch(() => {
+//     console.log(`Task in Error`);
+//   })
+//   .finally(() => {
+//     console.log(`All Tasks is Done`);
+//   })
+
