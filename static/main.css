@@ -247,7 +247,7 @@ input[type=submit] {
   margin-bottom: 50px;
 }
 .header .header__wrapper {
-  padding: 5px 0px;
+  padding: 10px 0px;
   width: 100%;
   margin: 0 auto;
   max-width: 1200px;
@@ -283,6 +283,9 @@ input[type=submit] {
 }
 .header .header__wrapper .header__column ul li:not(:last-child) {
   margin-right: 15px;
+}
+.header .header__wrapper .header__column ul a:visited {
+  color: white;
 }
 .header .header__wrapper .header__column form {
   width: 100%;
@@ -324,8 +327,8 @@ input[type=submit] {
 
 .footer {
   margin: 50px 0;
-  padding-top: 50px;
-  border-top: 3px solid rgba(0, 0, 0, 0.1);
+  padding: 50px;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
   width: 100%;
   display: -webkit-box;
   display: -webkit-flex;
@@ -348,7 +351,7 @@ input[type=submit] {
 .footer .footer__icon {
   color: rgba(0, 0, 0, 0.2);
   font-size: 40px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 .footer .footer__text {
   color: rgba(0, 0, 0, 0.2);
@@ -666,6 +669,18 @@ input[type=submit] {
 }
 .video-detail__container .video__comments .video__comments-list li:not(:last-child) {
   margin-bottom: 15px;
+}
+.video-detail__container .video__comments span {
+  -webkit-align-self: center;
+      -ms-flex-item-align: center;
+          align-self: center;
+}
+.video-detail__container .video__comments button {
+  background-color: #42c3ff2a;
+  margin-left: 10px;
+  width: 25px;
+  height: 25px;
+  font-size: 10px;
 }
 
 .user-profile {
