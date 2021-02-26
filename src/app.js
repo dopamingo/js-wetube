@@ -6,6 +6,7 @@ import bodyParser from "body-parser";
 import passport from "passport";
 import mongoose from "mongoose";
 import session from "express-session"
+import path from "path";
 import MongoStore from "connect-mongo";
 import { localsMiddleware } from "./middlewares";
 import routes from "./routes";
@@ -25,8 +26,8 @@ app.use(function(req, res, next) {
     return next();
     }); // 비디오 안 나온느 현상 임시 해결
 app.set("view engine", "pug") // 기본 디렉토리는 /view
-app.use("/uploads", express.static("uploads"));
-app.use("/static", express.static("static"));
+app.set("views", path.join(__dirname, "views"));
+app.use("/static", express.static(path.join(__dirname, "static")));
 app.use(bodyParser.json()); // form데이터를 서버로 받아와서 활용
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(morgan("dev")); // 로그
